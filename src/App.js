@@ -1,5 +1,13 @@
 import "./App.css";
 import React, { useState } from "react";
+import {
+  FaGoogle,
+  FaLinkedinIn,
+  FaYoutube,
+  FaAmazon,
+  FaGithub,
+} from "react-icons/fa";
+import { RiNetflixFill } from "react-icons/ri";
 
 const data = [
   {
@@ -32,12 +40,19 @@ const data4 = [
     url: ["https://www.linkedin.com"],
   },
 ];
+const data5 = [
+  {
+    name: "Github",
+    url: ["https://www.github.com"],
+  },
+];
 function App() {
   const [lists, setLists] = useState(data);
   const [lists1, setLists1] = useState(data1);
   const [lists2, setLists2] = useState(data2);
   const [lists3, setLists3] = useState(data3);
   const [lists4, setLists4] = useState(data4);
+  const [lists5, setLists5] = useState(data5);
 
   const openTabs = (url) => {
     for (const link of url) {
@@ -47,6 +62,7 @@ function App() {
   return (
     <div className="App">
       <h3>Choose Your App List</h3>
+
       <div className="lists">
         {lists &&
           lists.map((item) => {
@@ -57,6 +73,8 @@ function App() {
                   openTabs(item.url);
                 }}
               >
+                <FaGoogle />
+
                 {item.name}
               </button>
             );
@@ -71,6 +89,7 @@ function App() {
                   openTabs(item.url);
                 }}
               >
+                <FaYoutube color="black " />
                 {item.name}
               </button>
             );
@@ -84,6 +103,8 @@ function App() {
                   openTabs(item.url);
                 }}
               >
+                {" "}
+                <FaAmazon className="amazon" color="black " />
                 {item.name}
               </button>
             );
@@ -97,6 +118,8 @@ function App() {
                   openTabs(item.url);
                 }}
               >
+                {" "}
+                <RiNetflixFill />
                 {item.name}
               </button>
             );
@@ -110,6 +133,22 @@ function App() {
                   openTabs(item.url);
                 }}
               >
+                <FaLinkedinIn></FaLinkedinIn>
+                {item.name}
+              </button>
+            );
+          })}
+        {lists5 &&
+          lists5.map((item) => {
+            return (
+              <button
+                className="button5"
+                onClick={() => {
+                  openTabs(item.url);
+                }}
+              >
+                <FaGithub />
+
                 {item.name}
               </button>
             );
